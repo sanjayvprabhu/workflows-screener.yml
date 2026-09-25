@@ -28,4 +28,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: tradingview-watchlist
-          path: TV_WMA_watchlist.txt
+          path: tv_dryup_watchlist_1.txt
