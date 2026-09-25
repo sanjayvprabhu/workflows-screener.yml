@@ -1,4 +1,4 @@
-name: Run Chartink Screener Daily
+name: Run Chartink Screener_Orig Daily
 
 on:
   schedule:
