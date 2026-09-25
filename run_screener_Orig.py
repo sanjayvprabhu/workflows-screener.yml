@@ -3,11 +3,11 @@ import sys
 import requests
 from bs4 import BeautifulSoup
 
-SCREENER_URL = "https://chartink.com/screener/chartink-dry-up-setup-ready-screener-code-for-oneil-disiple"
+SCREENER_URL = "https://chartink.com/screener/weightage-moving-average-scan"
 PROCESS_URL = "https://chartink.com/screener/process"
 
 # If dynamic parsing fails, paste your copied scan_clause between the quotes below:
-FALLBACK_SCAN_CLAUSE = "( {cash} (  daily close >  daily sma(  daily close , 50 ) and  daily sma(  daily close , 50 ) >  daily sma(  daily close , 200 ) and  daily close >  50 and  daily volume *  daily close >  100000000 and  daily volume <  (  daily sma(  daily volume , 50 ) *  0.6 ) and(  (  daily high -  daily low ) /  daily close ) *  100 <  2.5 and( {cash} (  abs(  daily close -  daily ema(  daily close , 10 ) ) /  daily close *  100 <=  1.5 or  abs(  daily close -  daily ema(  daily close , 20 ) ) /  daily close *  100 <=  1.5 or  abs(  daily close -  daily sma(  daily close , 50 ) ) /  daily close *  100 <=  1.5 ) ) and  daily close >=  (  daily max( 20 ,  daily high ) *  0.85 ) ) )"
+FALLBACK_SCAN_CLAUSE = "( {cash} (  market cap >=  1000 and  1 day ago wma(  daily close , 40 ) <  3 days ago wma(  daily close , 40 ) and  daily wma(  daily close , 40 ) <  2 days ago wma(  daily close , 40 ) and  daily wma(  daily close , 40 ) >  1 day ago wma(  daily close , 40 ) ) )"
 
 def get_watchlist():
     session = requests.Session()
