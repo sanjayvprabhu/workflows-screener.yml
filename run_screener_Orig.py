@@ -70,7 +70,7 @@ def get_watchlist():
     results = api_resp.json().get("data", [])
     tickers = [f"NSE:{item['nsecode']}" for item in results if "nsecode" in item]
 
-    output_file = "tv_dryup_watchlist.txt"
+    output_file = "tv_WMA_watchlist.txt"
     with open(output_file, "w") as f:
         f.write(",\n".join(tickers))
 
