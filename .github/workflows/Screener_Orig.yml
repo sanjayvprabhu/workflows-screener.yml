@@ -1,0 +1,31 @@
+name: Run Chartink Screener Daily
+
+on:
+  schedule:
+    # 10:30 AM UTC = 4:00 PM IST (Runs Monday through Friday)
+    - cron: '30 10 * * 1-5'
+  workflow_dispatch: # Enables the manual "Run workflow" button
+
+jobs:
+  run-screener:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests beautifulsoup4
+
+      - name: Run screener script
+        run: python run_screener_Orig.py
+
+      - name: Upload Watchlist as Downloadable Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: tradingview-watchlist
+          path: TV_WMA_watchlist.txt
